@@ -2,11 +2,12 @@
 
 This guided tutorial will introduce HSC Software Engineering to the basics of developing websites with the [node.JS framework](https://nodejs.org/en). The tutorial has been specifically designed for requirements in the [NESA Software Engineering Syllabus](https://curriculum.nsw.edu.au/learning-areas/tas/software-engineering-11-12-2022/content/n12/fa6aab137e) and students in NSW Department of Education schools using eT4L computers.
 
-A [list of popular PWA's](https://business.adobe.com/blog/basics/progressive-web-app-examples) (including Ube, Spotify, Facebook and Google Maps)
+A [list of popular PWA's](https://business.adobe.com/blog/basics/progressive-web-app-examples) (including Uber, Spotify, Facebook and Google Maps)
 
 ## Overview of Progressive Web Apps
 
 A [Progressive Web Apps (PWAs)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps?ref=arctype.com) is an app that is built using web platform technologies, but that provides a user experience like that of a platform-specific app. Like a website, a PWA can run on multiple platforms and devices from a single codebase. Like a platform-specific app, it can be installed on the device, can operate while offline and in the background, and can integrate with the device and with other installed apps.
+A [Progressive Web App (PWA)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps?ref=arctype.com) is an app that is built using web platform technologies, but that provides a user experience like that of a platform-specific app. Like a website, a PWA can run on multiple platforms and devices from a single codebase. Like a platform-specific app, it can be installed on the device, can operate while offline and in the background, and can integrate with the device and with other installed apps.
 
 ### Technical features of PWAs
 
