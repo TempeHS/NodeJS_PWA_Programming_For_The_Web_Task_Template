@@ -103,80 +103,166 @@ The below image illustrates how the servicework manages online and offline behav
 > [!IMPORTANT]
 > Checkpoint 1 complete. Well done! 🎉
 
-### Create files and folders for your node.JS Project
+---
 
-1. Files or folders that start with a dot (`\.*` or `.*.*`) can't be served by the web server. This adds a layer of security for assets that you do not want to be public.
+### 2. Create your files
 
-```bash
-mkdir .workingDocuments
-```
+1.  Copy and paste the following commands into your terminal:
 
-2. Create a license file.
+    ```bash
+    mkdir public
+    cd public
+    ```
 
-```bash
-touch LICENSE
-code LICENSE
-```
+    This will first <span style="color: red">**m**</span>a<span style="color: red">**k**</span>e a <span style="color: red">**dir**</span>ectory named `public` for the frontend files that the web server will make available to the client. Then it will <span style="color: red">**c**</span>hange your terminal location to that <span style="color: red">**d**</span>irectory.
 
-Copy the [GNU GPL license](https://www.gnu.org/licenses/gpl-3.0.txt) text into the file. GNU GPL is a free software license, or copyleft license, that guarantees end users the freedom to run, study, share, and modify the software.
+2.  Now we’ll write a `bash` script to create all of the subdirectories and files you’ll need in this public directory.
 
-3. Create your directory structure and some base files using BASH scripts reading text files.
+    > [!TIP] > **What is this doing?** `bash` scripts automate common tasks to save you time and reduce the likelihood of typos and errors. While you’ll only need to create these subdirectories and files once, this is good practice! You could even use this as a shortcut for future projects.
 
-```text
-├── .database
-├── .workingdocuments
-├── public
-│   ├── css
-│   ├── icons
-│   ├── images
-│   ├── js
-│   ├── index.html
-│   ├── about.html
-│   ├── manifest.json
-│   ├── serviceworker.js
-├── LICENSE
-└── index.js
-```
+    1.  Create a `folders.txt` file with `touch`, open the file with `code`, then list the name of each folder on a new line. Be sure to leave an empty line at the end.
 
-4. Create a text file with a list of folders you need in the public folder of your project. The web server will serve the contents of the public folder. This folder is the 'FRONT END,' while all folders behind it are the 'BACK END.'
+        ```bash
+        touch folders.txt
+        code folders.txt
+        ```
 
-```bash
-mkdir public
-cd public
-touch folders.txt
-code folder.txt
-```
+        ```
+        icons
+        images
+        css
+        js
 
-4. Run a BASH script to read the text file and create the folders listed in it.
+        ```
 
-```bash
-while read -r line; do
-echo $line
-mkdir -p $line
-done < folders.txt
-```
+        > [!WARNING]
+        > If you’re getting an error that the `code` command doesn’t exist, go to  *View* → *Command Palette* from the top menu of VSCode, type `shell command` and select `Install 'code' command in PATH` . Follow the login prompts to complete installation, then try again. ![Installing code command](README_resources/code_command.png)
 
-5. Populate the file with a list of files you need at the root of your project.
+    2.  Create a `files.txt` file with `touch`, open the file with `code`, then add your file names:
 
-```bash
-touch files.txt
-code files.txt
-```
+        ```
+        index.html
+        manifest.json
+        serviceworker.js
+        css/style.css
 
-6. Run a BASH script to read the text file and create the files listed in it.
+        ```
 
-```bash
-while read -r line; do
-echo $line
-touch -p $line
-done < files.txt\
-```
+    3.  <img src="README_resources/windows.png" alt="Windows" width="14"/> Windows users: you’ll need to do an extra step to avoid an unwanted `space` at the end of all of your folder and file names. Click on `CRLF` in the bottom bar of VSCode, change it to `LF` and re-save `folders.txt` and `files.txt` before completing the next steps.
+
+        ![Changing CRLF to LF](README_resources/CRLF.png)
+
+        > [!TIP] > **What is this doing?** Bash is a Unix language that you are emulating on your Windows operating system. Bash uses [LF Unicode character 000A while Windows uses CRLF Unicode characters 000D and 000A](https://learn.microsoft.com/en-us/visualstudio/ide/encodings-and-line-breaks?view=vs-2022). The [medo64.render-crlf](https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf) extension you installed allows you to swap these characters.
+
+    4.  Paste the following script into your terminal to create your folders.
+
+        ```bash
+        while read -r line; do
+        echo $line
+        mkdir -p $line
+        done < folders.txt
+        ```
+
+        > [!TIP] > **What is this doing?** This is reading each line of your file, then using `echo` to print the `$line` to your terminal for tracing. It then runs `mkdir` to make a directory using `$line` as the path.
+
+    5.  Paste the following script into your terminal to create your files.
+
+        ```bash
+        while read -r line; do
+        echo $line
+        touch $line
+        done < files.txt
+        ```
+
+        > [!TIP] > **Notice the difference?** Folders are created with the `mkdir` command, and files are created using `touch`.
+
+3.  <span style="color: red">**L**</span>i<span style="color: red">**s**</span>t the contents of your current directory with `ls`.
+
+    ```bash
+    ls
+    ```
+
+    If everything worked correctly, you should see the following 9 items:
+
+    1. css
+    2. files.txt
+    3. folders.txt
+    4. icons
+    5. images
+    6. index.html
+    7. js
+    8. manifest.json
+    9. serviceworker.js
+
+4.  Open the `index.html` file with `code index.html` in your terminal, then copy and paste the basic structure below.
+
+    ```bash
+    code index.html
+    ```
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="script-src 'self';"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>My First PWA</title>
+        <link rel="manifest" href="manifest.json" />
+        <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+      </head>
+      <body>
+        <main>
+          <div class="container">
+            <h1>Hello, world!</h1>
+          </div>
+        </main>
+        <script src="js/app.js"></script>
+      </body>
+    </html>
+    ```
+
+5.  <span style="color: red">**C**</span>hange to the parent <span style="color: red">**d**</span>irectory using `cd ..` . Create a license file with `touch`, open it with `code` and copy and paste the [GNU GPL license](https://www.gnu.org/licenses/gpl-3.0.txt) text into the file.
+
+    ```bash
+    cd ..
+    touch LICENSE
+    code LICENSE
+    ```
+
+    > [!TIP] > **What is this doing?** GNU GPL is a free software license, or copyleft license, that guarantees end users the freedom to run, study, share, and modify the software.
+
+6.  <span style="color: red">**M**</span>a<span style="color: red">**k**</span>e a <span style="color: red">**dir**</span>ectory for any working files you don’t want to be public.
+
+    ```bash
+    mkdir .workingDocuments
+    ```
+
+    > [!TIP] > **What is this doing?** Files or folders that start with a dot can’t be served by the web server. This adds a layer of security for assets that you do not want to be public.
+
+7.  <span style="color: red">**L**</span>i<span style="color: red">**s**</span>t the contents of your current directory with `ls`.
+
+    ```bash
+    ls
+    ```
+
+    If everything worked correctly, you should see the following 7 items:
+
+    1. docs
+    2. LICENSE
+    3. node_modules
+    4. package.json
+    5. package-lock.json
+    6. public
+    7. requirements.txt
 
 > [!IMPORTANT]
->
-> —The last list item needs a line ending, so make sure the last line in the file is blank.
->
-> - You will find that all file and folder names have an unwanted `space` character at the end. This is because you are using a BASH emulator on the Windows operating system. Bash is a Unix language that uses [LF Unicode character 000A while Windows uses CRLF Unicode characters 000D and 000A](https://learn.microsoft.com/en-us/visualstudio/ide/encodings-and-line-breaks?view=vs-2022). Because you have installed the [medo64.render-crlf](https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf) extension, click on `CRLF` in the bottom bar of VSCode and choose `LF` to change the line ending before running your BASH script.
+> Checkpoint 2 complete. Well done! 🎉
 
 ---
 
