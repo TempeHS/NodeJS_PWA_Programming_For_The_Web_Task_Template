@@ -316,6 +316,65 @@ The below image illustrates how the servicework manages online and offline behav
 
 ---
 
+### 4. Push changes to your remote repository
+
+1. To ‘save’ your changes to GitHub, you’ll need to **push** your **local repository** (the code on your laptop) to your **remote repository** (the code stored on GitHub’s servers).
+
+   ![Git diagram](README_resources/git_diagram.png)
+
+2. Before we do this, we need to tell `git` to ignore unnecessary files. Create and open a `.gitignore` file with the following commands:
+
+   ```bash
+   touch .gitignore
+   code .gitignore
+   ```
+
+3. Copy and paste the content from the following recommended `.gitignore` files into your `.gitignore` :
+
+   1. https://github.com/github/gitignore/blob/main/Node.gitignore
+   2. https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
+   3. <img src="README_resources/windows.png" alt="Windows" width="14"/> Windows users: https://github.com/github/gitignore/blob/main/Global/Windows.gitignore
+   4. <img src="README_resources/apple.png" alt="Mac" width="14"/> Mac users: https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
+
+   > [!TIP] > **What is this doing?** These are recommended `.gitignore` files for Node.js projects, projects written in VSCode and projects cloned to Windows or Mac devices. In short, these all add unnecessary files that don’t need to be in your remote repository, because if the remote repository needs them, it will generate them itself. You can learn more [here](https://www.atlassian.com/git/tutorials/saving-changes/gitignore).
+
+4. First we’ll need to `git add` and `git commit` the changes you’ve made to your local repository. This will create **commits**, or versions, of your local codebase so that you can track and manage changes. To do this, enter the following commands in terminal:
+
+   ```bash
+   git add .
+   git commit -m "Initialise Node.js app"
+   ```
+
+   > [!TIP] > **What is this doing?** `git add` specifies the files you want to ‘stage’ to commit. In this case, we use `git add .` because we want to commit all of the files. `git commit` then creates a version of the codebase with these ‘staged’ changes, and `-m` allows you to set the commit message. These should explain the changes in **present tense** with the first letter capitalised.
+
+5. If you’ve set up your `.gitignore` correctly, you should only see the following files printed in your terminal after your `git commit` command:
+
+   1. .gitignore
+   2. LICENSE
+   3. index.js
+   4. package-lock.json
+   5. public/css/style.css
+   6. public/files.txt
+   7. public/folders.txt
+   8. public/index.html
+   9. public/manifest.json
+   10. public/serviceworker.js
+
+   > [!WARNING] > **What if I see more files?** Don’t push just yet – undo your commit by running `git reset HEAD~` and double check you've correctly saved your `.gitignore` file.
+
+6. Now that you’ve successfully committed your changes locally, `git push` them to the remote repository with the following command:
+
+   ```bash
+   git push origin main
+   ```
+
+   > [!TIP] > **What is this doing?** We use `git push` to send the committed changes to the remote repository (`origin`) on the specified **branch**. For now, we only have one branch named `main`.
+
+> [!IMPORTANT]
+> Checkpoint 4 complete. Well done! 🎉
+
+---
+
 ### Setup your SQLite3 Database
 
 ```bash
