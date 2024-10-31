@@ -1,6 +1,8 @@
 # Introduction to node.js and progressive web apps
 
-This guided tutorial will introduce HSC Software Engineering to the basics of developing websites with the [node.JS framework](https://nodejs.org/en). The tutorial has been specifically designed for requirements in the [NESA Software Engineering Syllabus](https://curriculum.nsw.edu.au/learning-areas/tas/software-engineering-11-12-2022/content/n12/fa6aab137e) and students in NSW Department of Education schools using eT4L computers.
+This guided tutorial will introduce HSC Software Engineering to the basics of developing websites with the [node.JS framework](https://nodejs.org/en). The tutorial has been specifically designed for requirements in the [NESA Software Engineering Syllabus](https://curriculum.nsw.edu.au/learning-areas/tas/software-engineering-11-12-2022/content/n12/fa6aab137e) and students in NSW Department of Education schools using eT4L computers. This screen capture shows how the final PWA will be rendered to the user.
+
+![Screen capture of the finished PWA](/docs/README_resources/final_app.png "This is what your application will look like")
 
 ## Overview of Progressive Web Apps
 
@@ -24,12 +26,6 @@ The below image illustrates how the servicework manages online and offline behav
 
 </details>
 
-## Your end product
-
-This screen capture shows how the final PWA will be rendered to the user.
-
-![Screen capture of the finished PWA](/docs/README_resources/final_app.png "This is what your application will look like")
-
 ## Steps to building your first PWA
 
 ### Setup your environment
@@ -50,7 +46,8 @@ This screen capture shows how the final PWA will be rendered to the user.
 
 _\*You will need to configure esbenp.prettier-vscode as your default formatter_
 
-2. Open a GIT BASH terminal
+> [!NOTE]
+> Helpful VSCode settings are configured in [.vscode/settings.json](/.vscode/settings.json), which will automatically apply if you are not using a custom profile. If you are using a custom profile, it is suggested you manually apply those settings to your profile, especially the \*.md file association, so the README.md default opens in preview mode and setting _bash_ as your default terminal. 2. Open a GIT BASH terminal
 
 > [!NOTE]
 > From now on, you should aim to run all commands from the CLI. You are discouraged from left/right clicking the GUI. You will find it feels slow at first, but through disciplined use, you will become much quicker and more accurate with CLI commands than GUI controls.
@@ -183,7 +180,7 @@ touch data_source.db
 > - etc
 
 1. To run SQLite3 SQL queries in VSCode
-Open the DB file, then choose "Query Editor" from the top menu.
+   Open the DB file, then choose "Query Editor" from the top menu.
 
 ```bash
 code data_source.db
@@ -228,7 +225,7 @@ SELECT * FROM extension WHERE language LIKE '#BASH';
 > [!NOTE]
 > Graphic design is not the focus of this course. It is suggested that you do not spend excessive time designing logos and icons.
 
-1. Use Photoshop or [Canva](https://www.canva.com/en_au/signup/?signupRedirect=%2Fedu-signup&loginRedirect=%2Fedu-signup&brandingVariant=edu) to design a simple square logo 1080px X 1080px named logo.png. Save all working files (*.psd, pre-optimised originals, etc) into the .workingdocuments directory.
+1. Use Photoshop or [Canva](https://www.canva.com/en_au/signup/?signupRedirect=%2Fedu-signup&loginRedirect=%2Fedu-signup&brandingVariant=edu) to design a simple square logo 1080px X 1080px named logo.png. Save all working files (\*.psd, pre-optimised originals, etc) into the .workingdocuments directory.
 2. Design a simplified app icon 512px X 512px named favicon.png.
 3. Web optimise the images using [TinyPNG](https://tinypng.com/).
 4. Save the files into the public/images folder.
