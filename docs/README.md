@@ -26,63 +26,82 @@ The below image illustrates how the servicework manages online and offline behav
 
 </details>
 
+---
+
 ## Steps to building your first PWA
 
-### Setup your environment
+### 1. Setup your development environment
 
-![Screen recording of setting up VSCode](/docs/README_resources/get_vscode_started.gif "Follow these steps to setup VSCode")
+1. Download [VSCode](https://code.visualstudio.com/) to use as your IDE (integrated development environment).
+
+2. Install the necessary VSCode extensions for this tutorial.
+
+| Required Extensions                                                                                              | Suggested nodeJS Extensions                                                                          |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [McCarter.start-git-bash](https://marketplace.visualstudio.com/items?itemName=McCarter.start-git-bash)           | [ecmel.vscode-html-css](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css)   |
+| [yy0931.vscode-sqlite3-editor](https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor) | [ms-vscode.js-debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug)         |
+| [medo64.render-crlf](https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf)                     | [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) |
+|                                                                                                                  | [oderwat.indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) |
+
+3.  Download and install [Node.js](https://nodejs.org/en/download/prebuilt-installer) v20.18.0.
+
+4.  <img src="README_resources/windows.png" alt="Windows" width="14"/> Windows users: Download [git](https://git-scm.com/).
+
+5.  [Create](https://github.com/signup) or [login](https://github.com/login) to your GitHub account.
+
+6.  Accept the GitHub Classroom assignment to create your own version of this repository.
+
+7.  Open VSCode. On the welcome screen, click `Clone Git Repository`.
+    <img src="README_resources/VS_welcome.png" alt="Welcome screen with clone link highlighted" width="380" style="display: block"/>
+
+8.  Select `Clone from GitHub`, login then select your `intro-to-PWA` repository.
+
+9.  Open VSCode, then open a terminal using <kbd>Ctrl</kbd> + <kbd>`</kbd>.
+
+    > [!NOTE]
+    > From now on, you should aim to run all commands from the CLI. You are discouraged from left/right clicking the GUI. You will find it feels slow at first, but through disciplined use, you will become much quicker and more accurate with CLI commands than GUI controls.
+
+10. At the top right of the terminal, click the dropdown next to `+` and select `bash` or `Git Bash`.
+    <img src="README_resources/git_bash_shell.png" alt="Screen capture of the menu options for terminals" width="380" style="display: block"/>
+
+    > [!TIP] > **What is this doing?** Different operating systems have different default scripting languages within their terminals (aka command lines). For this project, we’ll all be using `bash`.
+
+11. In terminal, type:
+
+    ```bash
+    git status
+    ```
+
+    You should see:
+
+    ```
+    On branch main
+    Your branch is up to date with 'origin/main'.
+    ```
+
+    > [!WARNING]
+    > You may be prompted to download developer tools before you can use git commands. Follow the prompts, then retry.
+
+12. Enter the following commands in your terminal to verify Node has been correctly installed:
+
+    ```bash
+    node -v # should print `v20.18.0`
+    npm -v # should print `10.8.2`
+    ```
+
+13. If the above commands return the correct versions, copy the following commands into your terminal to initialise your Node app and install the required dependencies:
+
+    ```bash
+    npm init -y
+    npm install sqlite3
+    npm install express
+    ```
 
 > [!NOTE]
-> Helpful VSCode settings are configured in [.vscode/settings.json](/.vscode/settings.json), which will automatically apply if you are not using a custom profile. If you are using a custom profile, it is suggested you manually apply those settings to your profile, especially the \*.md file association, so the README.md default opens in preview mode and setting _bash_ as your default terminal.
+> Helpful VSCode settings are configured in [.vscode/settings.json](/.vscode/settings.json), which will automatically apply if you are not using a custom profile. If you are using a custom profile, it is suggested you manually apply those settings to your profile.
 
-1. Install the necessary extensions for this tutorial.
-
-| Required Extensions                                                                                              | Suggested nodeJS Extensions                                                                            |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| [McCarter.start-git-bash](https://marketplace.visualstudio.com/items?itemName=McCarter.start-git-bash)           | [ecmel.vscode-html-css](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css)     |
-| [yy0931.vscode-sqlite3-editor](https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor) | [ms-vscode.js-debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug)           |
-| [medo64.render-crlf](https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf)                     | [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)\* |
-|                                                                                                                  | [oderwat.indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow)   |
-
-_\*You will need to configure esbenp.prettier-vscode as your default formatter_
-
-> [!NOTE]
-> Helpful VSCode settings are configured in [.vscode/settings.json](/.vscode/settings.json), which will automatically apply if you are not using a custom profile. If you are using a custom profile, it is suggested you manually apply those settings to your profile, especially the \*.md file association, so the README.md default opens in preview mode and setting _bash_ as your default terminal. 2. Open a GIT BASH terminal
-
-> [!NOTE]
-> From now on, you should aim to run all commands from the CLI. You are discouraged from left/right clicking the GUI. You will find it feels slow at first, but through disciplined use, you will become much quicker and more accurate with CLI commands than GUI controls.
-
-Make sure you open a new terminal with the keys <kbd>Ctrl</kbd> + <kbd>`</kbd> and choose Git Bash from the menu option in the top right of the terminal shell.
-
-![Screen capture of the menu options for terminals](/docs/README_resources/git_bash_shell.png "Choose Git Bash from the list")
-
-3. Get the working files, which include this README.md
-
-   - Open a new window in VSCode
-   - Choose your working directory
-
-```bash
-git clone https://github.com/TempeHS/NodeJS_PWA_Programming_For_The_Web_Task_Template.git
-cd NodeJS_PWA_Programming_For_The_Web_Task_Template
-```
-
-> [!TIP]
-> Alternatively, you can fork the [template repository](https://github.com/TempeHS/NodeJS_PWA_Programming_For_The_Web_Task_Template) to your own GitHub account and open it in a Codespace in which all dependencies and extensions will be automatically installed.
-
-1. Inititalise a node application
-
-```bash
-npm init -y
-```
-
-5. Install necessary dependencies.
-
-```bash
-npm install sqlite3
-npm install express
-```
-
----
+> [!IMPORTANT]
+> Checkpoint 1 complete. Well done! 🎉
 
 ### Create files and folders for your node.JS Project
 
