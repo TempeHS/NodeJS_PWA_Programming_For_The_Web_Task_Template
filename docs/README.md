@@ -266,6 +266,56 @@ The below image illustrates how the servicework manages online and offline behav
 
 ---
 
+### 3. Render your website
+
+1.  From your root repository directory, create and open your backend javascript with the following commands:
+
+    ```bash
+    touch index.js
+    code index.js
+    ```
+
+2.  Paste the following code into `index.js` to configure your Express web server.
+    Express is a light weight webserver designed specifically for Node.js web applications. You have already installed it when you set up your environment.
+
+    ```jsx
+    // Insert additional backend js above the express server configuration
+    const express = require("express");
+    const path = require("path");
+    const app = express();
+    app.use(express.static(path.join(__dirname, "public")));
+
+    app.get("/", function (req, res) {
+      res.sendFile(path.join(__dirname, "public/index.html"));
+    });
+    app.listen(4000, () =>
+      console.log(
+        "Server is running on Port 4000, visit http://localhost:4000/ or http://127.0.0.1:4000 to access your website"
+      )
+    );
+    ```
+
+    > [!TIP] > **What is this doing?** This code is **routing** users to the correct HTML based on the URL entered in their web browser. In this example, when you visit the root URL, which is `localhost:4000` , you will be served `index.html`.
+
+    > [!NOTE] > **Why 4000?** You can technically use any free port from 1024-49151, but avoid the following commonly occupied ports or you might get an error: 3000, 3306, 4200, 5000, 7000, 8000, 8080, 9000, 27017.
+
+3.  In your terminal, enter the following command to run your web server:
+
+    ```bash
+    node index.js
+    ```
+
+    If this works, you should see the `Server is running...` message logged in your terminal. If it doesn't, try running `npm install` then `node index.js`.
+
+4.  Visit http://localhost:4000/, and you should see “Hello, world!”
+
+5.  To stop your server, press <kbd>Ctrl</kbd> + <kbd>C</kbd> in the terminal.
+
+> [!IMPORTANT]
+> Checkpoint 3 complete. Well done! 🎉
+
+---
+
 ### Setup your SQLite3 Database
 
 ```bash
@@ -474,47 +524,6 @@ nav h1 {
   margin-bottom: 0.5rem;
 }
 ```
-
-<HR
-
-### Render your website
-
-Express is a light weight webserver designed specifically for Node.js web applications. You have already installed it when you set up your environment.
-
-```bash
-cd ../..
-code index.js
-```
-
-1. Insert the node.js to the backend index.js.
-
-```js
-// Insert additional backend js above the express server configuration
-
-const express = require("express");
-const path = require("path");
-const app = express();
-app.use(express.static(path.join(__dirname, "public")));
-
-app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "public/index.html"));
-});
-app.listen(5000, () =>
-  console.log(
-    "Server is running on Port 5000, visit http://localhost:5000/ or http://127.0.0.1:5000 to access your website"
-  )
-);
-```
-
-2. Run the built-in webserver.
-
-```bash
-node index.js
-```
-
-3. Visit your website and look at the source in developer tools to see how the page has been rendered.
-
----
 
 ### Query your SQL database and migrate the data for the frontend
 
