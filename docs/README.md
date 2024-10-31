@@ -1,16 +1,13 @@
-# INTRODUCTION TO node.JS AND PROGRESSIVE WEB APPS TUTORIAL
+# Introduction to node.js and progressive web apps
 
 This guided tutorial will introduce HSC Software Engineering to the basics of developing websites with the [node.JS framework](https://nodejs.org/en). The tutorial has been specifically designed for requirements in the [NESA Software Engineering Syllabus](https://curriculum.nsw.edu.au/learning-areas/tas/software-engineering-11-12-2022/content/n12/fa6aab137e) and students in NSW Department of Education schools using eT4L computers.
 
-A [list of popular PWA's](https://business.adobe.com/blog/basics/progressive-web-app-examples) (including Uber, Spotify, Facebook and Google Maps)
-
 ## Overview of Progressive Web Apps
 
-A [Progressive Web Apps (PWAs)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps?ref=arctype.com) is an app that is built using web platform technologies, but that provides a user experience like that of a platform-specific app. Like a website, a PWA can run on multiple platforms and devices from a single codebase. Like a platform-specific app, it can be installed on the device, can operate while offline and in the background, and can integrate with the device and with other installed apps.
-A [Progressive Web App (PWA)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps?ref=arctype.com) is an app that is built using web platform technologies, but that provides a user experience like that of a platform-specific app. Like a website, a PWA can run on multiple platforms and devices from a single codebase. Like a platform-specific app, it can be installed on the device, can operate while offline and in the background, and can integrate with the device and with other installed apps.
+A [Progressive Web App (PWA)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps?ref=arctype.com) is an app that is built using web platform technologies, but that provides a user experience like that of a platform-specific app. Like a website, a PWA can run on multiple platforms and devices from a single codebase. Like a platform-specific app, it can be installed on the device, can operate while offline and in the background, and can integrate with the device and with other installed apps. There are [many popular PWAs](https://business.adobe.com/blog/basics/progressive-web-app-examples), including Uber, Spotify, Facebook and Google Maps.
 
-### Technical features of PWAs
-
+<details>
+  <summary>Technical features of PWAs</summary>
 Because PWAs are websites, they have the same basic features as any other website: at least one HTML page, which loads CSS and JavaScript. Javascript is the language of the web and is exclusively used for the client-side front end; python, in the web context, can only be used in the back end. Like a normal website, the JavaScript loaded by the page has a global Window object and can access all the Web APIs that are available through that object. The PWA standard as defined by [W3C Standards](https://www.w3.org/standards/) has some specific features additional to a website:
 
 | Feature             | Purpose                                                                                                                                                                                                                                                                                                                                  |
@@ -25,27 +22,15 @@ The below image illustrates how the servicework manages online and offline behav
 
 ![A highlevel illustration of the service worker](/docs/README_resources/Progressive-Web-Apps-Architecture.png "The service worker handles the initial requests and sets the behaviour depending on if the app is on or offline.")
 
+</details>
+
 ## Your end product
 
 This screen capture shows how the final PWA will be rendered to the user.
 
 ![Screen capture of the finished PWA](/docs/README_resources/final_app.png "This is what your application will look like")
 
-## Requirements
-
-1. VSCode
-2. Python 3.x +
-3. Node.js v.20.x +
-
-## Prior learning
-
-1. Bash basics & using the GIT Bash shell in VSCode
-2. SQL
-3. HTML Basics
-4. CSS Basics
-5. Python
-
-## STEPS TO BUILDING YOUR FIRST PWA
+## Steps to building your first PWA
 
 ### Setup your environment
 
