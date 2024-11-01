@@ -423,7 +423,7 @@ The below image illustrates how the servicework manages online and offline behav
    </nav>
    ```
 
-2. Download [this image](https://chris-ayers.com/assets/images/vscode-logo.png) and save it to your `images` directory as `logo.png`.
+2. Download [this image](https://ryanrobinson.technology/assets/img/logo/Visual-Studio-Code.png) and save it to your `images` directory as `logo.png`.
 
 3. Refresh http://localhost:4000 – what does the nav look like?
 
