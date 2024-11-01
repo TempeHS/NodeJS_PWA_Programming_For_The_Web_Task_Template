@@ -43,20 +43,20 @@ The below image illustrates how the servicework manages online and offline behav
 | [medo64.render-crlf](https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf)                     | [esbenp.prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) |
 |                                                                                                                  | [oderwat.indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) |
 
-3.  Download and install [Node.js](https://nodejs.org/en/download/prebuilt-installer) v20.18.0.
+3. Download and install [Node.js](https://nodejs.org/en/download/prebuilt-installer) v20.18.0.
 
-4.  <img src="README_resources/windows.png" alt="Windows" width="14"/> Windows users: Download [git](https://git-scm.com/).
+4. <img src="README_resources/windows.png" alt="Windows" width="14"/> Windows users: Download [git](https://git-scm.com/).
 
-5.  [Create](https://github.com/signup) or [login](https://github.com/login) to your GitHub account.
+5. [Create](https://github.com/signup) or [login](https://github.com/login) to your GitHub account.
 
-6.  Accept the GitHub Classroom assignment to create your own version of this repository.
+6. Accept the GitHub Classroom assignment to create your own version of this repository.
 
-7.  Open VSCode. On the welcome screen, click `Clone Git Repository`.
+7. Open VSCode. On the welcome screen, click `Clone Git Repository`.
     <img src="README_resources/VS_welcome.png" alt="Welcome screen with clone link highlighted" width="380" style="display: block"/>
 
-8.  Select `Clone from GitHub`, login then select your `intro-to-PWA` repository.
+8. Select `Clone from GitHub`, login then select your `intro-to-PWA` repository.
 
-9.  Open VSCode, then open a terminal using <kbd>Ctrl</kbd> + <kbd>`</kbd>.
+9. Open VSCode, then open a terminal using <kbd>Ctrl</kbd> + <kbd>`</kbd>.
 
     > [!NOTE]
     > From now on, you should aim to run all commands from the CLI. You are discouraged from left/right clicking the GUI. You will find it feels slow at first, but through disciplined use, you will become much quicker and more accurate with CLI commands than GUI controls.
@@ -64,7 +64,7 @@ The below image illustrates how the servicework manages online and offline behav
 10. At the top right of the terminal, click the dropdown next to `+` and select `bash` or `Git Bash`.
     <img src="README_resources/git_bash_shell.png" alt="Screen capture of the menu options for terminals" width="380" style="display: block"/>
 
-    > [!TIP] 
+    > [!TIP]
     > **What is this doing?** Different operating systems have different default scripting languages within their terminals (aka command lines). For this project, we’ll all be using `bash`.
 
 11. In terminal, type:
@@ -105,7 +105,7 @@ The below image illustrates how the servicework manages online and offline behav
 
 ### 2. Create your files
 
-1.  Copy and paste the following commands into your terminal:
+1. Copy and paste the following commands into your terminal:
 
     ```bash
     mkdir public
@@ -114,12 +114,12 @@ The below image illustrates how the servicework manages online and offline behav
 
     This will first <span style="color: red">**m**</span>a<span style="color: red">**k**</span>e a <span style="color: red">**dir**</span>ectory named `public` for the frontend files that the web server will make available to the client. Then it will <span style="color: red">**c**</span>hange your terminal location to that <span style="color: red">**d**</span>irectory.
 
-2.  Now we’ll write a `bash` script to create all of the subdirectories and files you’ll need in this public directory.
+2. Now we’ll write a `bash` script to create all of the subdirectories and files you’ll need in this public directory.
 
-    > [!TIP] 
+    > [!TIP]
     > **What is this doing?** `bash` scripts automate common tasks to save you time and reduce the likelihood of typos and errors. While you’ll only need to create these subdirectories and files once, this is good practice! You could even use this as a shortcut for future projects.
 
-    1.  Create a `folders.txt` file with `touch`, open the file with `code`, then list the name of each folder on a new line. Be sure to leave an empty line at the end.
+    1. Create a `folders.txt` file with `touch`, open the file with `code`, then list the name of each folder on a new line. Be sure to leave an empty line at the end.
 
         ```bash
         touch folders.txt
@@ -135,9 +135,9 @@ The below image illustrates how the servicework manages online and offline behav
         ```
 
         > [!WARNING]
-        > If you’re getting an error that the `code` command doesn’t exist, go to  *View* → *Command Palette* from the top menu of VSCode, type `shell command` and select `Install 'code' command in PATH` . Follow the login prompts to complete installation, then try again. ![Installing code command](README_resources/code_command.png)
+        > If you’re getting an error that the `code` command doesn’t exist, go to  _View* → *Command Palette_ from the top menu of VSCode, type `shell command` and select `Install 'code' command in PATH` . Follow the login prompts to complete installation, then try again. ![Installing code command](README_resources/code_command.png)
 
-    2.  Create a `files.txt` file with `touch`, open the file with `code`, then add your file names:
+    2. Create a `files.txt` file with `touch`, open the file with `code`, then add your file names:
 
         ```
         index.html
@@ -147,14 +147,14 @@ The below image illustrates how the servicework manages online and offline behav
 
         ```
 
-    3.  <img src="README_resources/windows.png" alt="Windows" width="14"/> Windows users: you’ll need to do an extra step to avoid an unwanted `space` at the end of all of your folder and file names. Click on `CRLF` in the bottom bar of VSCode, change it to `LF` and re-save `folders.txt` and `files.txt` before completing the next steps.
+    3. <img src="README_resources/windows.png" alt="Windows" width="14"/> Windows users: you’ll need to do an extra step to avoid an unwanted `space` at the end of all of your folder and file names. Click on `CRLF` in the bottom bar of VSCode, change it to `LF` and re-save `folders.txt` and `files.txt` before completing the next steps.
 
         ![Changing CRLF to LF](README_resources/CRLF.png)
 
-        > [!TIP] 
+        > [!TIP]
         > **What is this doing?** Bash is a Unix language that you are emulating on your Windows operating system. Bash uses [LF Unicode character 000A while Windows uses CRLF Unicode characters 000D and 000A](https://learn.microsoft.com/en-us/visualstudio/ide/encodings-and-line-breaks?view=vs-2022). The [medo64.render-crlf](https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf) extension you installed allows you to swap these characters.
 
-    4.  Paste the following script into your terminal to create your folders.
+    4. Paste the following script into your terminal to create your folders.
 
         ```bash
         while read -r line; do
@@ -163,10 +163,10 @@ The below image illustrates how the servicework manages online and offline behav
         done < folders.txt
         ```
 
-        > [!TIP] 
+        > [!TIP]
         > **What is this doing?** This is reading each line of your file, then using `echo` to print the `$line` to your terminal for tracing. It then runs `mkdir` to make a directory using `$line` as the path.
 
-    5.  Paste the following script into your terminal to create your files.
+    5. Paste the following script into your terminal to create your files.
 
         ```bash
         while read -r line; do
@@ -175,10 +175,10 @@ The below image illustrates how the servicework manages online and offline behav
         done < files.txt
         ```
 
-        > [!TIP] 
+        > [!TIP]
         > **Notice the difference?** Folders are created with the `mkdir` command, and files are created using `touch`.
 
-3.  <span style="color: red">**L**</span>i<span style="color: red">**s**</span>t the contents of your current directory with `ls`.
+3. <span style="color: red">**L**</span>i<span style="color: red">**s**</span>t the contents of your current directory with `ls`.
 
     ```bash
     ls
@@ -196,7 +196,7 @@ The below image illustrates how the servicework manages online and offline behav
     8. manifest.json
     9. serviceworker.js
 
-4.  Open the `index.html` file with `code index.html` in your terminal, then copy and paste the basic structure below.
+4. Open the `index.html` file with `code index.html` in your terminal, then copy and paste the basic structure below.
 
     ```bash
     code index.html
@@ -229,7 +229,7 @@ The below image illustrates how the servicework manages online and offline behav
     </html>
     ```
 
-5.  <span style="color: red">**C**</span>hange to the parent <span style="color: red">**d**</span>irectory using `cd ..` . Create a license file with `touch`, open it with `code` and copy and paste the [GNU GPL license](https://www.gnu.org/licenses/gpl-3.0.txt) text into the file.
+5. <span style="color: red">**C**</span>hange to the parent <span style="color: red">**d**</span>irectory using `cd ..` . Create a license file with `touch`, open it with `code` and copy and paste the [GNU GPL license](https://www.gnu.org/licenses/gpl-3.0.txt) text into the file.
 
     ```bash
     cd ..
@@ -246,7 +246,7 @@ The below image illustrates how the servicework manages online and offline behav
     mkdir .workingDocuments
     ```
 
-    > [!TIP] 
+    > [!TIP]
     > **What is this doing?** Files or folders that start with a dot can’t be served by the web server. This adds a layer of security for assets that you do not want to be public.
 
 7.  <span style="color: red">**L**</span>i<span style="color: red">**s**</span>t the contents of your current directory with `ls`.
@@ -296,7 +296,7 @@ The below image illustrates how the servicework manages online and offline behav
     );
     ```
 
-    > [!TIP] 
+    > [!TIP]
     > **What is this doing?** This code is **routing** users to the correct HTML based on the URL entered in their web browser. In this example, when you visit the root URL, which is `localhost:4000` , you will be served `index.html`.
 
     > [!NOTE]
@@ -310,7 +310,7 @@ The below image illustrates how the servicework manages online and offline behav
 
     If this works, you should see the `Server is running...` message logged in your terminal. If it doesn't, try running `npm install` then `node index.js`.
 
-4.  Visit http://localhost:4000/, and you should see “Hello, world!”
+4.  Visit <http://localhost:4000/>, and you should see “Hello, world!”
 
 5.  To stop your server, press <kbd>Ctrl</kbd> + <kbd>C</kbd> in the terminal.
 
@@ -331,12 +331,12 @@ The below image illustrates how the servicework manages online and offline behav
 
 3. Copy and paste the content from the following recommended `.gitignore` files into your `.gitignore` :
 
-   1. https://github.com/github/gitignore/blob/main/Node.gitignore
-   2. https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
-   3. <img src="README_resources/windows.png" alt="Windows" width="14"/> Windows users: https://github.com/github/gitignore/blob/main/Global/Windows.gitignore
-   4. <img src="README_resources/apple.png" alt="Mac" width="14"/> Mac users: https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
+   1. <https://github.com/github/gitignore/blob/main/Node.gitignore>
+   2. <https://github.com/github/gitignore/blob/main/VisualStudio.gitignore>
+   3. <img src="README_resources/windows.png" alt="Windows" width="14"/> Windows users: <https://github.com/github/gitignore/blob/main/Global/Windows.gitignore>
+   4. <img src="README_resources/apple.png" alt="Mac" width="14"/> Mac users: <https://github.com/github/gitignore/blob/main/Global/macOS.gitignore>
 
-   > [!TIP] 
+   > [!TIP]
    > **What is this doing?** These are recommended `.gitignore` files for Node.js projects, projects written in VSCode and projects cloned to Windows or Mac devices. In short, these all add unnecessary files that don’t need to be in your remote repository, because if the remote repository needs them, it will generate them itself. You can learn more [here](https://www.atlassian.com/git/tutorials/saving-changes/gitignore).
 
 4. First we’ll need to `git add` and `git commit` the changes you’ve made to your local repository. This will create **commits**, or versions, of your local codebase so that you can track and manage changes. To do this, enter the following commands in terminal:
@@ -346,7 +346,7 @@ The below image illustrates how the servicework manages online and offline behav
    git commit -m "Initialise Node.js app"
    ```
 
-   > [!TIP] 
+   > [!TIP]
    > **What is this doing?** `git add` specifies the files you want to ‘stage’ to commit. In this case, we use `git add .` because we want to commit all of the files. `git commit` then creates a version of the codebase with these ‘staged’ changes, and `-m` allows you to set the commit message. These should explain the changes in **present tense** with the first letter capitalised.
 
 5. If you’ve set up your `.gitignore` correctly, you should only see the following files printed in your terminal after your `git commit` command:
@@ -362,7 +362,7 @@ The below image illustrates how the servicework manages online and offline behav
    9. public/manifest.json
    10. public/serviceworker.js
 
-   > [!WARNING] 
+   > [!WARNING]
    > **What if I see more files?** Don’t push just yet – undo your commit by running `git reset HEAD~` and double check you've correctly saved your `.gitignore` file.
 
 6. Now that you’ve successfully committed your changes locally, `git push` them to the remote repository with the following command:
@@ -371,7 +371,7 @@ The below image illustrates how the servicework manages online and offline behav
    git push origin main
    ```
 
-   > [!TIP] 
+   > [!TIP]
    > **What is this doing?** We use `git push` to send the committed changes to the remote repository (`origin`) on the specified **branch**. For now, we only have one branch named `main`.
 
 ---
@@ -402,7 +402,7 @@ The below image illustrates how the servicework manages online and offline behav
    }
    ```
 
-2. Now if you return to your root directory, run your web server and visit http://localhost:4000 the page should look different. **What has changed?**
+2. Now if you return to your root directory, run your web server and visit <http://localhost:4000> the page should look different. **What has changed?**
 
    ```bash
    node index.js
@@ -426,7 +426,7 @@ The below image illustrates how the servicework manages online and offline behav
 
 2. Download [this image](https://ryanrobinson.technology/assets/img/logo/Visual-Studio-Code.png) and save it to your `images` directory as `logo.png`.
 
-3. Refresh http://localhost:4000 – what does the nav look like?
+3. Refresh <http://localhost:4000> – what does the nav look like?
 
 4. Add the following css to your `style.css` below your existing styles:
 
@@ -460,11 +460,11 @@ The below image illustrates how the servicework manages online and offline behav
    }
    ```
 
-   > [!TIP] 
+   > [!TIP]
    > **What is this doing?** The nav is using `display: flex` or **flexbox** to make the list items go horizontally instead of vertically. Learn more about flexbox below 👇
-   > https://www.youtube.com/watch?v=K74l26pE4YA
+   > <https://www.youtube.com/watch?v=K74l26pE4YA>
 
-5. Refresh http://localhost:4000 – what does the nav look like now? Other than the layout, what has changed?
+5. Refresh <http://localhost:4000> – what does the nav look like now? Other than the layout, what has changed?
 
 ### 3. Create your card component
 
@@ -487,17 +487,17 @@ The below image illustrates how the servicework manages online and offline behav
 
 2. Make four cards, replacing the `${variable}` content with the following:
 
-   |            | `${image}`                                                                                                                                       | `${name}`      | `${about}`                                                                                              | `${hyperlink} `                                                                  |
+   |            | `${image}`                                                                                                                                       | `${name}`      | `${about}`                                                                                              | `${hyperlink}`                                                                  |
    | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-   | **Card 1** | https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.7.9/1661914858952/Microsoft.VisualStudio.Services.Icons.Default     | Live Server    | Launch a development local Server with live reload feature for static & dynamic pages                   | https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer        |
-   | **Card 2** | https://medo64.gallerycdn.vsassets.io/extensions/medo64/render-crlf/1.7.1/1689315206970/Microsoft.VisualStudio.Services.Icons.Default            | Render CRLF    | Displays the line ending symbol and optionally extra whitespace when 'Render whitespace' is turned on.  | https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf           |
-   | **Card 3** | https://mccarter.gallerycdn.vsassets.io/extensions/mccarter/start-git-bash/1.2.1/1499505567572/Microsoft.VisualStudio.Services.Icons.Default     | Start GIT BASH | Adds a bash command to VSCode that allows you to start git-bash in the current workspace's root folder. | https://marketplace.visualstudio.com/items?itemName=McCarter.start-git-bash      |
-   | **Card 4** | https://yy0931.gallerycdn.vsassets.io/extensions/yy0931/vscode-sqlite3-editor/1.0.85/1690893830873/Microsoft.VisualStudio.Services.Icons.Default | SQLite3 Editor | Edit SQLite3 files like you would in spreadsheet applications.                                          | https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor |
+   | **Card 1** | <https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.7.9/1661914858952/Microsoft.VisualStudio.Services.Icons.Default>     | Live Server    | Launch a development local Server with live reload feature for static & dynamic pages                   | <https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer>        |
+   | **Card 2** | <https://medo64.gallerycdn.vsassets.io/extensions/medo64/render-crlf/1.7.1/1689315206970/Microsoft.VisualStudio.Services.Icons.Default>            | Render CRLF    | Displays the line ending symbol and optionally extra whitespace when 'Render whitespace' is turned on.  | <https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf>           |
+   | **Card 3** | <https://mccarter.gallerycdn.vsassets.io/extensions/mccarter/start-git-bash/1.2.1/1499505567572/Microsoft.VisualStudio.Services.Icons.Default>     | Start GIT BASH | Adds a bash command to VSCode that allows you to start git-bash in the current workspace's root folder. | <https://marketplace.visualstudio.com/items?itemName=McCarter.start-git-bash>      |
+   | **Card 4** | <https://yy0931.gallerycdn.vsassets.io/extensions/yy0931/vscode-sqlite3-editor/1.0.85/1690893830873/Microsoft.VisualStudio.Services.Icons.Default> | SQLite3 Editor | Edit SQLite3 files like you would in spreadsheet applications.                                          | <https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor> |
 
-   > [!TIP] 
+   > [!TIP]
    > **What is this doing?** We’re **manually entering** database fields about VSCode extensions. A bit tedious right? **This is why we use databases**. We’ll create and connect our databases later this week
 
-3. Refresh http://localhost:4000 – what do the cards look like without any styles?
+3. Refresh <http://localhost:4000> – what do the cards look like without any styles?
 
 4. Add the following css to your `style.css` below your existing styles:
 
@@ -568,17 +568,17 @@ The below image illustrates how the servicework manages online and offline behav
    }
    ```
 
-   > [!TIP] 
+   > [!TIP]
    > **What is this doing?** The cards are using **flexbox**, like the nav, but organising content in a **column** instead of a **row**. The container holding them is using `display: grid` to organise the content. Learn more about CSS grid below👇
-   > https://www.youtube.com/watch?v=uuOXPWCh-6o
+   > <https://www.youtube.com/watch?v=uuOXPWCh-6o>
 
-5. Refresh http://localhost:4000 – what do the cards look like now?
+5. Refresh <http://localhost:4000> – what do the cards look like now?
 
 ### 4. Make your graphic assets
 
 1. Use [imgix](https://sandbox.imgix.com/create) to optimise your `logo.png` image. Download and replace `logo.png` in your `public/images` folder.
 
-   > [!TIP] 
+   > [!TIP]
    > **What is this doing?** This is reducing the size of the image so that your website will load faster.
 
 2. Then use [imgix](https://sandbox.imgix.com/create) to generate icons with the following names/sizes:
@@ -593,7 +593,7 @@ The below image illustrates how the servicework manages online and offline behav
 
 3. Duplicate `icon-512x512.png` and save it as `favicon.png` in the `public/images` folder.
 
-   > [!TIP] 
+   > [!TIP]
    > **What is this doing?** This is setting the icon that will display in your tab next to the page title.
 
 ---
@@ -664,7 +664,7 @@ SELECT * FROM extension WHERE language LIKE '#BASH';
 1. Choose whether you'll use Python or Javascript to query a table in `data_source.db` and construct a JSON file that will be pushed to the frontend for rendering.
    If you choose the JS method, you should refer to the Python method in the future as a helpful way to have more complex Python programs in the backend and create a simple responsive GUI using HTML/CSS/JS.
 
-   > [!TIP] 
+   > [!TIP]
    > **Why JSON** [JSON (JavaScript Object Notation)](https://www.json.org/json-en.html) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is also very secure and the worflow used in this application ensures data integrity of the backend.
 
 <details>
