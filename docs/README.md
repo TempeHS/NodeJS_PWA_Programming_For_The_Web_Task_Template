@@ -28,7 +28,7 @@ The below image illustrates how the servicework manages online and offline behav
 
 ---
 
-## Steps to building your first PWA
+## Steps to initialising your first PWA
 
 ### 1. Setup your development environment
 
@@ -371,68 +371,204 @@ The below image illustrates how the servicework manages online and offline behav
    > [!TIP] > **What is this doing?** We use `git push` to send the committed changes to the remote repository (`origin`) on the specified **branch**. For now, we only have one branch named `main`.
 
 > [!IMPORTANT]
-> Checkpoint 4 complete. Well done! 🎉
+> Initialisation complete. Well done! 🎉
 
 ---
 
-### Setup your SQLite3 Database
+## Steps to building your frontend
 
-```bash
-cd ..
-mkdir .database
-cd .database
-touch data_source.db
-```
+### 1. Create your core styles
 
-> [!NOTE]
-> The following SQL queries are provided as an example only. Students are encouraged to select their content and design a database schema for it; ideas include:
->
-> - Favourite bands
-> - Favourite movies
-> - Favourite games
-> - Favourite books
-> - etc
+1. Open `style.css` and paste in the following global styles:
 
-1. To run SQLite3 SQL queries in VSCode
-   Open the DB file, then choose "Query Editor" from the top menu.
+   ```css
+   @import url("https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap");
+   * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   body {
+     background: #fdfdfd;
+     font-family: "Nunito", sans-serif;
+     font-size: 1rem;
+   }
+   main {
+     max-width: 900px;
+     margin: auto;
+     padding: 0.5rem;
+     text-align: center;
+   }
+   ```
 
-```bash
-code data_source.db
-```
+2. Now if you return to your root directory, run your web server and visit http://localhost:4000 the page should look different. **What has changed?**
 
-![Screen capture of query editor](/docs/README_resources/query_editor.png "Choose Query Editor from the top menu")
+   ```bash
+   node index.js
+   ```
 
-```sql
-CREATE TABLE extension(extID INTEGER NOT NULL PRIMARY KEY,name TEXT NOT NULL, hyperlink TEXT NOT NULL,about TEXT NOT NULL,image TEXT NOT NULL,language TEXT NOT NULL);
-```
+### 2. Create your nav component
 
-2. After running each query put `--` infront of the query to turn it into a comment so it doesn't run again and error.
-3. Run SQL queries to populate your table.
+1. Open `index.html` and paste in the following elements **before the** `<div class="container">` :
 
-```sql
-INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (1,"Live Server","https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer","Launch a development local Server with live reload feature for static & dynamic pages","https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.7.9/1661914858952/Microsoft.VisualStudio.Services.Icons.Default","HTML CSS JS");
-```
+   ```html
+   <nav>
+     <img src="images\logo.png" alt="VSCode Extensions site logo." />
+     <h1>VSCode Extensions</h1>
+     <ul class="topnav">
+       <li><a href="#">Home</a></li>
+       <li><a href="add.html">Add me</a></li>
+       <li><a href="about.html">About</a></li>
+     </ul>
+   </nav>
+   ```
 
-```sql
-INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (2,"Render CR LF","https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf","Displays the line ending symbol and optionally extra whitespace when 'Render whitespace' is turned on.","https://medo64.gallerycdn.vsassets.io/extensions/medo64/render-crlf/1.7.1/1689315206970/Microsoft.VisualStudio.Services.Icons.Default","#BASH");
-```
+2. Download [this image](https://chris-ayers.com/assets/images/vscode-logo.png) and save it to your `images` directory as `logo.png`.
 
-```sql
-INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (3,"Start GIT BASH","https://marketplace.visualstudio.com/items?itemName=McCarter.start-git-bash","Adds a bash command to VSCode that allows you to start git-bash in the current workspace's root folder.","https://mccarter.gallerycdn.vsassets.io/extensions/mccarter/start-git-bash/1.2.1/1499505567572/Microsoft.VisualStudio.Services.Icons.Default","#BASH");
-```
+3. Refresh http://localhost:4000 – what does the nav look like?
 
-```sql
-INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (4,"SQLite3 Editor","https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor","Edit SQLite3 files like you would in spreadsheet applications.","https://yy0931.gallerycdn.vsassets.io/extensions/yy0931/vscode-sqlite3-editor/1.0.85/1690893830873/Microsoft.VisualStudio.Services.Icons.Default","SQL");
-```
+4. Add the following css to your `style.css` below your existing styles:
 
-4. Run some SQL queries to test your database.
+   ```css
+   nav {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   nav img {
+     height: 100px;
+   }
+   nav ul {
+     list-style: none;
+     display: flex;
+   }
+   nav li {
+     margin-right: 1rem;
+   }
+   nav ul li a {
+     text-decoration-line: none;
+     text-transform: uppercase;
+     color: #393b45;
+   }
+   nav ul li a:hover {
+     color: #14e6dd;
+   }
+   nav h1 {
+     color: #106d69;
+     margin-bottom: 0.5rem;
+   }
+   ```
 
-```sql
-SELECT * FROM extension;
-SELECT * FROM extension WHERE language LIKE '#BASH';
-```
+   > [!TIP] > **What is this doing?** The nav is using `display: flex` or **flexbox** to make the list items go horizontally instead of vertically. Learn more about flexbox below 👇
+   > https://www.youtube.com/watch?v=K74l26pE4YA
 
----
+5. Refresh http://localhost:4000 – what does the nav look like now? Other than the layout, what has changed?
+
+### 3. Create your card component
+
+1. Open `index.html` and paste in the following elements **after the** `<div class="container">` , replacing your `<h1>Hello, world!</h1>`:
+
+   ```html
+   <div class="card">
+     <img
+       class="card-image"
+       src="${image}"
+       alt="Product image for the ${name} VSCode extension."
+     />
+     <h1 class="card-name">${name}</h1>
+     <p class="card-about">${about}</p>
+     <a class="card-link" href="${hyperlink}">
+       <button class="btn">Read More</button>
+     </a>
+   </div>
+   ```
+
+2. Make four cards, replacing the `${variable}` content with the following:
+
+   |            | `${image}`                                                                                                                                       | `${name}`      | `${about}`                                                                                              | `${hyperlink}`                                                                   |
+   | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+   | **Card 1** | https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.7.9/1661914858952/Microsoft.VisualStudio.Services.Icons.Default     | Live Server    | Launch a development local Server with live reload feature for static & dynamic pages                   | https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer        |
+   | **Card 2** | https://medo64.gallerycdn.vsassets.io/extensions/medo64/render-crlf/1.7.1/1689315206970/Microsoft.VisualStudio.Services.Icons.Default            | Render CRLF    | Displays the line ending symbol and optionally extra whitespace when 'Render whitespace' is turned on.  | https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf           |
+   | **Card 3** | https://mccarter.gallerycdn.vsassets.io/extensions/mccarter/start-git-bash/1.2.1/1499505567572/Microsoft.VisualStudio.Services.Icons.Default     | Start GIT BASH | Adds a bash command to VSCode that allows you to start git-bash in the current workspace's root folder. | https://marketplace.visualstudio.com/items?itemName=McCarter.start-git-bash      |
+   | **Card 4** | https://yy0931.gallerycdn.vsassets.io/extensions/yy0931/vscode-sqlite3-editor/1.0.85/1690893830873/Microsoft.VisualStudio.Services.Icons.Default | SQLite3 Editor | Edit SQLite3 files like you would in spreadsheet applications.                                          | https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor |
+
+   > [!TIP] > **What is this doing?** We’re **manually entering** database fields about VSCode extensions. A bit tedious right? **This is why we use databases**. We’ll create and connect our databases later this week
+
+3. Refresh http://localhost:4000 – what do the cards look like without any styles?
+
+4. Add the following css to your `style.css` below your existing styles:
+
+   ```css
+   .container {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+     grid-gap: 1rem;
+     justify-content: center;
+     align-items: center;
+     margin: auto;
+     padding: 1rem 0;
+   }
+   .card {
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     width: 17rem;
+     background: #fff;
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+     border-radius: 10px;
+     margin: auto;
+     overflow: hidden;
+   }
+   .card-image {
+     width: 100%;
+     height: 15rem;
+     object-fit: cover;
+   }
+   .card-name {
+     color: #222;
+     font-weight: 700;
+     text-transform: capitalize;
+     font-size: 1.1rem;
+     margin-top: 0.5rem;
+   }
+   .card-about {
+     text-overflow: ellipsis;
+     width: 15rem;
+     white-space: nowrap;
+     overflow: hidden;
+     margin-bottom: 1rem;
+   }
+   .btn {
+     border: none;
+     background: none;
+     border-radius: 5px;
+     box-shadow: 1px 1px 2px rgba(21, 21, 21, 0.1);
+     cursor: pointer;
+     font-size: 1.25rem;
+     margin: 0 1rem;
+     padding: 0.25rem 2rem;
+     transition: all 0.25s ease-in-out;
+     background: hsl(110, 21%, 93%);
+     color: hsl(141, 100%, 22%);
+     margin-bottom: 1rem;
+   }
+   .btn:focus,
+   .btn:hover {
+     box-shadow: 1px 1px 2px rgba(21, 21, 21, 0.2);
+     background: hsl(111, 21%, 86%);
+   }
+   .about-container {
+     font-size: 1.25rem;
+     margin-top: 2rem;
+     text-align: justify;
+     text-justify: inter-word;
+   }
+   ```
+
+   > [!TIP] > **What is this doing?** The cards are using **flexbox**, like the nav, but organising content in a **column** instead of a **row**. The container holding them is using `display: grid` to organise the content. Learn more about CSS grid below👇
+   > https://www.youtube.com/watch?v=uuOXPWCh-6o
+
+5. Refresh http://localhost:4000 – what do the cards look like now?
 
 ### Make your graphic assets
 
@@ -583,6 +719,141 @@ nav h1 {
   margin-bottom: 0.5rem;
 }
 ```
+
+```bash
+cd ../css
+code style.css
+```
+
+2. Style the cards by inserting this below your existing CSS in public/css/style.css.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 1rem 0;
+}
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 17rem;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+  margin: auto;
+  overflow: hidden;
+}
+.card-image {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
+.card-name {
+  color: #222;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+.card-about {
+  text-overflow: ellipsis;
+  width: 15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.btn {
+  border: none;
+  background: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px rgba(21, 21, 21, 0.1);
+  cursor: pointer;
+  font-size: 1.25rem;
+  margin: 0 1rem;
+  padding: 0.25rem 2rem;
+  transition: all 0.25s ease-in-out;
+  background: hsl(110, 21%, 93%);
+  color: hsl(141, 100%, 22%);
+  margin-bottom: 1rem;
+}
+.btn:focus,
+.btn:hover {
+  box-shadow: 1px 1px 2px rgba(21, 21, 21, 0.2);
+  background: hsl(111, 21%, 86%);
+}
+.about-container {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+```
+
+## Steps to building your backend
+
+### Setup your SQLite3 Database
+
+```bash
+cd ..
+mkdir .database
+cd .database
+touch data_source.db
+```
+
+> [!NOTE]
+> The following SQL queries are provided as an example only. Students are encouraged to select their content and design a database schema for it; ideas include:
+>
+> - Favourite bands
+> - Favourite movies
+> - Favourite games
+> - Favourite books
+> - etc
+
+1. To run SQLite3 SQL queries in VSCode
+   Open the DB file, then choose "Query Editor" from the top menu.
+
+```bash
+code data_source.db
+```
+
+![Screen capture of query editor](/docs/README_resources/query_editor.png "Choose Query Editor from the top menu")
+
+```sql
+CREATE TABLE extension(extID INTEGER NOT NULL PRIMARY KEY,name TEXT NOT NULL, hyperlink TEXT NOT NULL,about TEXT NOT NULL,image TEXT NOT NULL,language TEXT NOT NULL);
+```
+
+2. After running each query put `--` infront of the query to turn it into a comment so it doesn't run again and error.
+3. Run SQL queries to populate your table.
+
+```sql
+INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (1,"Live Server","https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer","Launch a development local Server with live reload feature for static & dynamic pages","https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.7.9/1661914858952/Microsoft.VisualStudio.Services.Icons.Default","HTML CSS JS");
+```
+
+```sql
+INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (2,"Render CR LF","https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf","Displays the line ending symbol and optionally extra whitespace when 'Render whitespace' is turned on.","https://medo64.gallerycdn.vsassets.io/extensions/medo64/render-crlf/1.7.1/1689315206970/Microsoft.VisualStudio.Services.Icons.Default","#BASH");
+```
+
+```sql
+INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (3,"Start GIT BASH","https://marketplace.visualstudio.com/items?itemName=McCarter.start-git-bash","Adds a bash command to VSCode that allows you to start git-bash in the current workspace's root folder.","https://mccarter.gallerycdn.vsassets.io/extensions/mccarter/start-git-bash/1.2.1/1499505567572/Microsoft.VisualStudio.Services.Icons.Default","#BASH");
+```
+
+```sql
+INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (4,"SQLite3 Editor","https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor","Edit SQLite3 files like you would in spreadsheet applications.","https://yy0931.gallerycdn.vsassets.io/extensions/yy0931/vscode-sqlite3-editor/1.0.85/1690893830873/Microsoft.VisualStudio.Services.Icons.Default","SQL");
+```
+
+4. Run some SQL queries to test your database.
+
+```sql
+SELECT * FROM extension;
+SELECT * FROM extension WHERE language LIKE '#BASH';
+```
+
+---
 
 ### Query your SQL database and migrate the data for the frontend
 
@@ -750,80 +1021,6 @@ function appendData(data) {
         `;
   });
   document.querySelector(".container").innerHTML = result;
-}
-```
-
-```bash
-cd ../css
-code style.css
-```
-
-2. Style the cards by inserting this below your existing CSS in public/css/style.css.
-
-```css
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  grid-gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  padding: 1rem 0;
-}
-.card {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 17rem;
-  background: #fff;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  border-radius: 10px;
-  margin: auto;
-  overflow: hidden;
-}
-.card-image {
-  width: 100%;
-  height: 15rem;
-  object-fit: cover;
-}
-.card-name {
-  color: #222;
-  font-weight: 700;
-  text-transform: capitalize;
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
-}
-.card-about {
-  text-overflow: ellipsis;
-  width: 15rem;
-  white-space: nowrap;
-  overflow: hidden;
-  margin-bottom: 1rem;
-}
-.btn {
-  border: none;
-  background: none;
-  border-radius: 5px;
-  box-shadow: 1px 1px 2px rgba(21, 21, 21, 0.1);
-  cursor: pointer;
-  font-size: 1.25rem;
-  margin: 0 1rem;
-  padding: 0.25rem 2rem;
-  transition: all 0.25s ease-in-out;
-  background: hsl(110, 21%, 93%);
-  color: hsl(141, 100%, 22%);
-  margin-bottom: 1rem;
-}
-.btn:focus,
-.btn:hover {
-  box-shadow: 1px 1px 2px rgba(21, 21, 21, 0.2);
-  background: hsl(111, 21%, 86%);
-}
-.about-container {
-  font-size: 1.25rem;
-  margin-top: 2rem;
-  text-align: justify;
-  text-justify: inter-word;
 }
 ```
 
