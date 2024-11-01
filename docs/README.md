@@ -570,23 +570,25 @@ The below image illustrates how the servicework manages online and offline behav
 
 5. Refresh http://localhost:4000 – what do the cards look like now?
 
-### Make your graphic assets
+### 4. Make your graphic assets
 
-> [!NOTE]
-> Graphic design is not the focus of this course. It is suggested that you do not spend excessive time designing logos and icons.
+1. Use [imgix](https://sandbox.imgix.com/create) to optimise your `logo.png` image. Download and replace `logo.png` in your `public/images` folder.
 
-1. Use Photoshop or [Canva](https://www.canva.com/en_au/signup/?signupRedirect=%2Fedu-signup&loginRedirect=%2Fedu-signup&brandingVariant=edu) to design a simple square logo 1080px X 1080px named logo.png. Save all working files (\*.psd, pre-optimised originals, etc) into the .workingdocuments directory.
-2. Design a simplified app icon 512px X 512px named favicon.png.
-3. Web optimise the images using [TinyPNG](https://tinypng.com/).
-4. Save the files into the public/images folder.
-5. Rename the 512x512 icon to icon-512x512.png, then resize and rename it as follows:
-   - icon-128x128.png
-   - icon-192x192.png
-   - icon-384x384.png
-   - icon-512x512.png
-6. Web optimise the images using [TinyPNG](https://tinypng.com/).
-7. Save the optimised icons to public/icons.
-8. Save the optimised logo and favicon to public/images.
+   > [!TIP] > **What is this doing?** This is reducing the size of the image so that your website will load faster.
+
+2. Then use [imgix](https://sandbox.imgix.com/create) to generate icons with the following names/sizes:
+   | Name | Size |
+   |------------------|---------------|
+   | icon-128x128.png | 128px x 128px |
+   | icon-192x192.png | 192px x 192px |
+   | icon-384x384.png | 384px x 384px |
+   | icon-512x512.png | 512px x 512px |
+
+   Save these files into the `public/icons` folder. We'll use them later as our PWA icons.
+
+3. Duplicate `icon-512x512.png` and save it as `favicon.png` in the `public/images` folder.
+
+   > [!TIP] > **What is this doing?** This is setting the icon that will display in your tab next to the page title.
 
 ---
 
