@@ -473,7 +473,7 @@ The below image illustrates how the servicework manages online and offline behav
 
 2. Make four cards, replacing the `${variable}` content with the following:
 
-   |            | `${image}`                                                                                                                                       | `${name}`      | `${about}`                                                                                              | `${hyperlink}`                                                                   |
+   |            | `${image}`                                                                                                                                       | `${name}`      | `${about}`                                                                                              | `${hyperlink} `                                                                  |
    | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
    | **Card 1** | https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.7.9/1661914858952/Microsoft.VisualStudio.Services.Icons.Default     | Live Server    | Launch a development local Server with live reload feature for static & dynamic pages                   | https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer        |
    | **Card 2** | https://medo64.gallerycdn.vsassets.io/extensions/medo64/render-crlf/1.7.1/1689315206970/Microsoft.VisualStudio.Services.Icons.Default            | Render CRLF    | Displays the line ending symbol and optionally extra whitespace when 'Render whitespace' is turned on.  | https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf           |
@@ -582,7 +582,7 @@ The below image illustrates how the servicework manages online and offline behav
 
 ## Steps to building your backend
 
-### Setup your SQLite3 Database
+### 1. Setup your SQLite3 Database
 
 ```bash
 cd ..
@@ -641,17 +641,12 @@ SELECT * FROM extension WHERE language LIKE '#BASH';
 
 ---
 
-### Query your SQL database and migrate the data for the frontend
+### 2. Query and migrate data for the frontend
 
-> [!NOTE]
-> From here students have two choices, they can use their existing Python skills or new JS skills. Either way, students will be querying a table in data_source.db and then constructing a JSON file that will be pushed to the frontend, ready for rending by a frontend JS script.
-> If you choose the JS method, you should refer to the Python method in the future as a helpful way to have more complex Python programs in the backend and create a simple responsive GUI using HTML/CSS/JS.
+1. Choose whether you'll use Python or Javascript to query a table in `data_source.db` and construct a JSON file that will be pushed to the frontend for rendering.
+   If you choose the JS method, you should refer to the Python method in the future as a helpful way to have more complex Python programs in the backend and create a simple responsive GUI using HTML/CSS/JS.
 
-#### Why JSON?
-
-[JSON (JavaScript Object Notation)](https://www.json.org/json-en.html) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is also very secure and the worflow used in this application ensures data integrity of the backend.
-
-### Choose your backend implementation language:
+   > [!TIP] > **Why JSON** [JSON (JavaScript Object Notation)](https://www.json.org/json-en.html) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is also very secure and the worflow used in this application ensures data integrity of the backend.
 
 <details>
     <summary><h3 style="display:inline">I want to use Python</h3></summary>
@@ -771,9 +766,7 @@ node index.js
 
 </details>
 
----
-
-### Render the JSON data on the frontend
+### 3. Render the JSON data on the frontend
 
 ```bash
 cd public/js
@@ -781,7 +774,8 @@ touch app.js
 code app.js
 ```
 
-1. Insert the js into public/js/app.js; this JS reads the JSON file and inserts it as HTML into the .container class `<DIV>`.
+1. Remove your existing cards from `<div class="container">`. We'll now generate them from your database.
+2. Insert the javascript below into `public/js/app.js`. This reads the JSON file and inserts it as HTML into `<div class="container">`.
 
 ```js
 let result = "";
@@ -812,16 +806,18 @@ function appendData(data) {
 
 ---
 
-### Finish the PWA code, so it is compliant with W3 web standards
+## Meet W3C standards for PWAs
 
-1. Take a screenshot of the website. Then size the image to 1080px X 1920px, web optimise the images using [TinyPNG](https://tinypng.com/) and save it to public/icons.
+### 1. Create a manifest
+
+1. Take a screenshot of the website. Then size the image to 1080px X 1920px, web optimise the images using [imgix](https://sandbox.imgix.com/create) and save it to `public/icons`.
 
 ```bash
 cd ..
 code manifest.json
 ```
 
-2. Configure the manifest.json to the PWA standard by inserting the JSON below and validating the JSON with [jsonlint](https://jsonlint.com/). The manifest.json sets the configuration for the installation and caching of the PWA.
+2. Configure the `manifest.json` to the PWA standard by inserting the JSON below and validating the JSON with [jsonlint](https://jsonlint.com/). The `manifest.json` sets the configuration for the installation and caching of the PWA.
 
 ```json
 {
@@ -900,12 +896,14 @@ code manifest.json
 }
 ```
 
+### 2. Create a serviceworker
+
 ```bash
 cd js
 code app.js
 ```
 
-2. Configure the app.js to initiate the servicework.js ny inserting the JS. This ensures that when the window (app) loads, the serviceworker.js is called to memory.
+1. Configure the `app.js` to initiate the `serviceworker.js` by inserting the JS below. This ensures that when the window (app) loads, the `serviceworker.js` is called to memory.
 
 ```js
 if ("serviceworker" in navigator) {
@@ -923,7 +921,7 @@ cd js
 code serviceworker.js
 ```
 
-1. Configure the serviceworker.js by inserting the JS. The serviceworker.js, as the name suggests, is the file that does all the work in a PWA, including caching and API integration for the [WEB APIs](https://developer.mozilla.org/en-US/docs/Web/API).
+2. Configure `serviceworker.js` by inserting the JS below. The `serviceworker.js`, as the name suggests, is the file that does all the work in a PWA, including caching and API integration for the [WEB APIs](https://developer.mozilla.org/en-US/docs/Web/API).
 
 ```js
 const assets = [
@@ -986,9 +984,7 @@ self.addEventListener("fetch", function (evt) {
 });
 ```
 
----
-
-### Validate your PWA
+### 3. Validate your PWA
 
 Validation is important to ensure the app is compliant to [W3 web standards](https://www.w3.org/standards/).
 
@@ -999,7 +995,7 @@ Validation is important to ensure the app is compliant to [W3 web standards](htt
 
 ---
 
-### Take your app further
+## Take your app further
 
 The following code snippets will help you create a simple form on the add.html page. This form allows people to add their details to an email database for updates on your catalogue. Less explicit instructions have been provided; students are encouraged to practice their BASH, SQL, HTML, CSS, and JS to bring it all together. The screenshot below shows what the page should look like, and when users submit, the database is updated.
 
