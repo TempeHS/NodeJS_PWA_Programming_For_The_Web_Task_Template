@@ -100,9 +100,6 @@ The below image illustrates how the servicework manages online and offline behav
 > [!NOTE]
 > Helpful VSCode settings are configured in [.vscode/settings.json](/.vscode/settings.json), which will automatically apply if you are not using a custom profile. If you are using a custom profile, it is suggested you manually apply those settings to your profile.
 
-> [!IMPORTANT]
-> Checkpoint 1 complete. Well done! 🎉
-
 ---
 
 ### 2. Create your files
@@ -261,9 +258,6 @@ The below image illustrates how the servicework manages online and offline behav
     6. public
     7. requirements.txt
 
-> [!IMPORTANT]
-> Checkpoint 2 complete. Well done! 🎉
-
 ---
 
 ### 3. Render your website
@@ -310,9 +304,6 @@ The below image illustrates how the servicework manages online and offline behav
 4.  Visit http://localhost:4000/, and you should see “Hello, world!”
 
 5.  To stop your server, press <kbd>Ctrl</kbd> + <kbd>C</kbd> in the terminal.
-
-> [!IMPORTANT]
-> Checkpoint 3 complete. Well done! 🎉
 
 ---
 
@@ -369,9 +360,6 @@ The below image illustrates how the servicework manages online and offline behav
    ```
 
    > [!TIP] > **What is this doing?** We use `git push` to send the committed changes to the remote repository (`origin`) on the specified **branch**. For now, we only have one branch named `main`.
-
-> [!IMPORTANT]
-> Initialisation complete. Well done! 🎉
 
 ---
 
