@@ -18,6 +18,8 @@
           "editor.defaultFormatter": "ms-python.black-formatter"
         },
         "editor.fontSize": 18,
+        "extensions.ignoreRecommendations": true,
+        "unwantedRecommendations": ["ms-python.vscode-python-envs"],
         "terminal.integrated.defaultProfile.windows": "Git Bash",
         "window.restoreWindows": "preserve",
         "workbench.editorAssociations": {
