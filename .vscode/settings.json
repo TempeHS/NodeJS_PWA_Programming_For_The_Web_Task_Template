@@ -11,5 +11,13 @@
 	"window.restoreWindows": "preserve",
 	"workbench.editorAssociations": {
         	"*.md": "vscode.markdown.preview.editor"
-    	}
+    	},
+	"workbench.colorTheme": "Default Dark+",
+	"workbench.iconTheme": "vscode-icons",
+	"github.copilot.enable": {
+		"python": false,
+		"html": false,
+		"css": false,
+		"SQL": false
+	}
 }
