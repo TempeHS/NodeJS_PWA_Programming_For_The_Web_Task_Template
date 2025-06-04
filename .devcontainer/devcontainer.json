@@ -32,7 +32,8 @@
           "html": false,
           "css": false,
           "SQL": false
-        }
+        },
+        "chat.agent.enabled": false
       },
       "extensions": [
         "McCarter.start-git-bash",
