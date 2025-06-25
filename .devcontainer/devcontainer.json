@@ -1,12 +1,18 @@
 {
   "name": "HTML, CSS & JS",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    },
+    "ghcr.io/devcontainers/features/sqlite:1": {}
+  },
   "hostRequirements": {
     "cpus": 4
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "npm install -r requirements.txt",
-  "postCreateCommand": "",
+  "updateContentCommand": "npm install",
+  "postCreateCommand": "",  // Add setup scripts here if needed
   "customizations": {
     "vscode": {
       "settings": {
@@ -55,7 +61,8 @@
   },
   "portsAttributes": {
     "5000": {
-      "label": "Application"
+      "label": "Application",
+      "onAutoForward": "openBrowser"
     }
   },
   "forwardPorts": [5000]
