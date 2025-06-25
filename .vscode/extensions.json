@@ -13,6 +13,7 @@
     "GitHub.codespaces",
     "yahyabatulu.vscode-markdown-alert",
     "bierner.markdown-preview-github-styles",
-    "mechatroner.rainbow-csv"
+    "mechatroner.rainbow-csv",
+    "ms-python.vscode-python-envs"
   ]
 }
