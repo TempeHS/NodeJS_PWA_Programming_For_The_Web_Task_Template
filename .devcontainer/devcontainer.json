@@ -1,28 +1,23 @@
 {
-  "name": "HTML, CSS & JS",
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "name": "Python Flask Development Container",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "lts"
-    },
-    "ghcr.io/devcontainers/features/sqlite:1": {}
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/devcontainers/features/node:1": {}
   },
   "hostRequirements": {
     "cpus": 4
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "npm install",
-  "postCreateCommand": "",  // Add setup scripts here if needed
+  "updateContentCommand": "",
+  "postCreateCommand": "pip install -r requirements_python.txt && npm install requirements_node.txt && apt-get clean && rm -rf /root/.cache/pip",
+  "postStartCommand": "",   // For commands to run each Codespace start
   "customizations": {
     "vscode": {
       "settings": {
         "files.autoSave": "onFocusChange",
         "editor.formatOnPaste": true,
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "[python]": {
-          "editor.defaultFormatter": "ms-python.black-formatter"
-        },
         "editor.fontSize": 18,
         "extensions.ignoreRecommendations": true,
         "unwantedRecommendations": ["ms-python.vscode-python-envs"],
@@ -42,28 +37,36 @@
         "chat.agent.enabled": false
       },
       "extensions": [
-        "McCarter.start-git-bash",
-        "yy0931.vscode-sqlite3-editor",
-        "medo64.render-crlf",
-        "ecmel.vscode-html-css",
-        "ms-vscode.js-debug",
-        "esbenp.prettier-vscode",
-        "miramac.vscode-exec-node",
-        "oderwat.indent-rainbow",
-        "ritwickdey.LiveServer",
-        "mathematic.vscode-pdf",
-        "GitHub.codespaces",
-        "yahyabatulu.vscode-markdown-alert",
+        "bierner.markdown-mermaid",
         "bierner.markdown-preview-github-styles",
-        "mechatroner.rainbow-csv"
+        "ecmel.vscode-html-css",
+        "esbenp.prettier-vscode",
+        "GitHub.codespaces",
+        "mathematic.vscode-pdf",
+        "McCarter.start-git-bash",
+        "mechatroner.rainbow-csv",
+        "medo64.render-crlf",
+        "miramac.vscode-exec-node",
+        "ms-python.black-formatter",
+        "ms-python.debugpy",
+        "ms-python.pylint",
+        "ms-python.python",
+        "ms-vscode.js-debug",
+        "oderwat.indent-rainbow",
+        "yahyabatulu.vscode-markdown-alert",
+        "oderwat.indent-rainbow",
+        "streetsidesoftware.code-spell-checker",
+        "tal7aouy.icons",
+        "yahyabatulu.vscode-markdown-alert",
+        "yy0931.vscode-sqlite3-editor"       
       ]
     }
   },
+  "forwardPorts": [5000],  // Add the port your Flask app runs on, or others as needed
   "portsAttributes": {
     "5000": {
-      "label": "Application",
+      "label": "Flask App",
       "onAutoForward": "openBrowser"
     }
-  },
-  "forwardPorts": [5000]
+  }
 }

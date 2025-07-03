@@ -1,26 +1,25 @@
-{
-  "files.autoSave": "onFocusChange",
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  },
-  "editor.fontSize": 18,
-  "extensions.ignoreRecommendations": true,
-  "unwantedRecommendations": ["ms-python.vscode-python-envs"],
-  "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "window.restoreWindows": "preserve",
-  "workbench.editorAssociations": {
-    "*.md": "vscode.markdown.preview.editor"
-  },
-  "workbench.colorTheme": "Default Dark+",
-  "workbench.iconTheme": "vscode-icons",
-  "github.copilot.enable": {
-    "python": false,
-    "html": false,
-    "css": false,
-    "SQL": false
-  },
-  "chat.agent.enabled": false
+{				
+        "files.autoSave": "onFocusChange",
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.black-formatter"
+        },
+        "editor.fontSize": 18,
+        "extensions.ignoreRecommendations": true,
+        "terminal.integrated.defaultProfile.windows": "Git Bash",
+        "window.restoreWindows": "preserve",
+        "workbench.editorAssociations": {
+          "*.md": "vscode.markdown.preview.editor"
+        },
+      	"workbench.colorTheme": "Default Dark+",
+      	"workbench.iconTheme": "vscode-icons",
+      	"github.copilot.enable": {
+      		"python": false,
+      		"html": false,
+      		"css": false,
+      		"SQL": false
+      	},
+        "chat.agent.enabled": false
 }
