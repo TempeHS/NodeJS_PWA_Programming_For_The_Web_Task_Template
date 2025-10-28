@@ -11,7 +11,7 @@
   "waitFor": "onCreateCommand",
   "updateContentCommand": "",
   "postCreateCommand": "pip install -r requirements_python.txt && npm install requirements_node.txt && apt-get clean && rm -rf /root/.cache/pip",
-  "postStartCommand": "",   // For commands to run each Codespace start
+  "postStartCommand": "", // For commands to run each Codespace start
   "customizations": {
     "vscode": {
       "settings": {
@@ -37,6 +37,7 @@
         "chat.agent.enabled": false
       },
       "extensions": [
+        "mcu-debug.debug-tracker-vscode",
         "bierner.markdown-mermaid",
         "bierner.markdown-preview-github-styles",
         "ecmel.vscode-html-css",
@@ -56,11 +57,13 @@
         "streetsidesoftware.code-spell-checker",
         "tal7aouy.icons",
         "saeris.markdown-github-alerts",
-        "yy0931.vscode-sqlite3-editor"       
+        "yy0931.vscode-sqlite3-editor",
+        "github.copilot",
+        "usernamehw.errorlens"
       ]
     }
   },
-  "forwardPorts": [5000],  // Add the port your Flask app runs on, or others as needed
+  "forwardPorts": [5000], // Add the port your Flask app runs on, or others as needed
   "portsAttributes": {
     "5000": {
       "label": "Flask App",

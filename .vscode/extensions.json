@@ -1,5 +1,6 @@
 {
   "recommendations": [
+    "mcu-debug.debug-tracker-vscode",
     "bierner.markdown-mermaid",
     "bierner.markdown-preview-github-styles",
     "ecmel.vscode-html-css",
@@ -20,6 +21,8 @@
     "tal7aouy.icons",
     "saeris.markdown-github-alerts",
     "yy0931.vscode-sqlite3-editor",  
-    "ms-python.vscode-python-envs"
+    "ms-python.vscode-python-envs",
+    "github.copilot",
+    "usernamehw.errorlens"
   ]
 }
