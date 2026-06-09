@@ -1,9 +1,10 @@
 {
   "name": "Python Flask Development Container",
-  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
   "features": {
-    "ghcr.io/devcontainers/features/python:1": {},
-    "ghcr.io/devcontainers/features/node:1": {}
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
   },
   "hostRequirements": {
     "cpus": 4
@@ -55,10 +56,11 @@
         "ms-vscode.js-debug",
         "oderwat.indent-rainbow",
         "streetsidesoftware.code-spell-checker",
-        "tal7aouy.icons",
+        "streetsidesoftware.code-spell-checker-british-english",
+        "yusifaliyevpro.vscicons",
         "saeris.markdown-github-alerts",
         "yy0931.vscode-sqlite3-editor",
-        "github.copilot",
+        "github.copilot-chat",
         "usernamehw.errorlens"
       ]
     }
