@@ -11,7 +11,7 @@
   },
   "waitFor": "onCreateCommand",
   "updateContentCommand": "",
-  "postCreateCommand": "pip install -r requirements_python.txt && npm install requirements_node.txt && apt-get clean && rm -rf /root/.cache/pip",
+  "postCreateCommand": "npm install requirements_node.txt && apt-get clean && rm -rf /root/.cache/pip",
   "postStartCommand": "", // For commands to run each Codespace start
   "customizations": {
     "vscode": {
@@ -35,7 +35,7 @@
           "css": false,
           "SQL": false
         },
-        "chat.agent.enabled": false
+        "chat.agent.enabled": true
       },
       "extensions": [
         "mcu-debug.debug-tracker-vscode",
